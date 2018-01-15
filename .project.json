@@ -23,6 +23,11 @@
       "templateId": "ui5template.smartTemplate",
       "templateVersion": "1.40.12",
       "dateTimeStamp": "Mon, 15 Jan 2018 16:45:30 GMT"
+    },
+    {
+      "templateId": "uiadaptation.changespreviewjs",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Mon, 15 Jan 2018 17:13:25 GMT"
     }
   ],
   "mockpreview": {

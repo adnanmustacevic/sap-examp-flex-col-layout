@@ -1,4 +1,4 @@
-<View xmlns="sap.m" displayBlock="true" controllerName="nl.kadaster.test.flexcollayout.mycolleagues.controller.Detail" height="100%">
+<!--<View xmlns="sap.m" displayBlock="true" controllerName="nl.kadaster.test.flexcollayout.mycolleagues.controller.Detail" height="100%">
 	<Page id="detailPage" title="Detail page">
 		<Table>
 			<columns>
@@ -10,134 +10,269 @@
 						<Text text="Open end column"/>
 					</cells>
 				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleDetailPress">
-					<cells>
-						<Text text="Open end column"/>
-					</cells>
-				</ColumnListItem>
 			</items>
 		</Table>
 	</Page>
-</View>
+</View>-->
 
+<core:View xmlns:core="sap.ui.core"
+		   xmlns="sap.uxap"
+		   xmlns:layout="sap.ui.layout"
+		   xmlns:m="sap.m"
+		   xmlns:form="sap.ui.layout.form"
+		   xmlns:controls="nl.kadaster.test.flexcollayout.mycolleagues.controls"	   
+		   controllerName="nl.kadaster.test.flexcollayout.mycolleagues.controller.Detail"
+		   height="100%">
+	
 
+	<m:Page class="sapUiFioriObjectPage"	showNavButton="{device>/isPhone}" navButtonPress="handleNavButtonPress">
+		
+		
+		
+	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" showTitleInHeaderContent="true" showHeaderContent="true">
+		<headerTitle>
+			<ObjectPageHeader id="ObjectPageHeader" objectImageURI="{/PhotoUrl}" objectImageShape="Circle" objectTitle="{/Roepnaam} {/Name}" isObjectTitleAlwaysVisible="false"/>
+		</headerTitle>		
+		<headerContent>
+			<m:HBox>
+	            <m:VBox alignItems="Stretch" direction="Column" fitContainer="false"  width="200px" renderType="Div" visible="true" displayInline="false" justifyContent="Start">
+	                <m:items>
+	                	<!--<m:ObjectHeader id="lblName"  title="{/Roepnaam} {/Name}"/>-->
+	                    <m:ObjectAttribute title="" text="{/PositionText}" active="false"/>
+	                    <m:ObjectAttribute title="" text="{/Directoraat}, {/Subdirectoraat}" active="false"/>
+	                    <!--<m:ObjectAttribute title="" text="{/Afdeling}" active="false"/>-->
+						<layout:HorizontalLayout>
+							<core:Icon src="sap-icon://phone"/>
+							<m:Link id="lblPhone" text="{/Telefoon}" press="onPhoneClick"/>
+						</layout:HorizontalLayout>
+						<layout:HorizontalLayout>				
+							<core:Icon src="sap-icon://iphone"/>				
+							<m:Link id="lblMobPhone" text="{/Mobiel}" press="onMobPhoneClick"/>				
+						</layout:HorizontalLayout>
+	                    <layout:HorizontalLayout>
+		                    <core:Icon src="sap-icon://email"/>
+							<m:Link id="lblEmail" text="{/Email}" press="onEmailClick"/>
+						</layout:HorizontalLayout>						
+	                </m:items>
+	                <m:layoutData/>
+	            </m:VBox>
+
+	            <m:VBox alignItems="Stretch" direction="Column" fitContainer="false" renderType="Div" visible="{device>/isNotPhone}" displayInline="false" width="200px" justifyContent="Start">
+	                <m:items>
+<!--	                    <m:Label/>
+	                    <m:Text text="{/OverMij}" maxLines="3" wrapping="true" width="340px" textAlign="Initial" textDirection="LTR"/>-->
+	                </m:items>
+	            </m:VBox>
+	            <m:HBox alignItems="Stretch" direction="Column" fitContainer="true" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+	                <m:items>
+	            	<layout:HorizontalLayout>
+	            		<m:Label witdh="20px"/>
+		                <core:Icon src="sap-icon://org-chart" tooltip="{i18n>REPORTING_LINE}" press="onHierarchyPress"/>
+		                <m:Link text="{i18n>REPORTING_LINE}" press="onHierarchyPress"/>
+		            </layout:HorizontalLayout>  
+	                </m:items>
+	            </m:HBox>
+            </m:HBox>
+         
+		</headerContent>
+
+        <sections>		
+            <ObjectPageSection title="{i18n>PROFIEL_TITEL}">
+                <subSections>
+                    <ObjectPageSubSection title="{i18n>PROFIEL_TITEL}" mode="Expanded">
+                        <blocks>
+                            <form:Form width="100%" editable="false" visible="true">
+                                <form:title>
+                                    <core:Title text="{i18n>PERSOONS_GEGEVENS}" level="Auto"/>
+                                </form:title>
+                                <form:formContainers>
+                                    <form:FormContainer visible="true">
+                                        <form:formElements>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>ROEPNAAM}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/Roepnaam}" width="auto" maxLines="1" wrapping="true" textAlign="Initial" textDirection="LTR"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>ACHTERNAAM}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+	                                                    <m:Text text="{/Name}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>DOORKIESNUMMER}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/Telefoon}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>MOBIELNUMMER}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/Mobiel}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>EMAIL_PERGEG_DISP}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <!--<m:Link href="{/Email}" text="{emailadres}" textAlign="Begin" width="auto" target="_blank" wrapping="true" enabled="true" visible="true" emphasized="false" subtle="false"/>-->
+													<m:Text text="{/Email}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>                                                    
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>WERKROOSTER}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/Werkrooster}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>OVER_MIJ}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/OverMij}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                        <form:title/>
+                                    </form:FormContainer>
+                                </form:formContainers>
+                                <form:layout>
+                                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                                </form:layout>
+                            </form:Form>                                
+                        </blocks>                        	                    	
+                    </ObjectPageSubSection>                    	                	
+                </subSections>                         	
+            </ObjectPageSection>
+            <ObjectPageSection title="{i18n>ORGANISATIE}">
+                <subSections>
+                    <ObjectPageSubSection title="{i18n>ORGANISATIE}" mode="Expanded">
+                        <blocks>
+                            <form:Form width="100%" editable="false" visible="true">
+                                <form:title>
+                                    <core:Title text="{i18n>ORGANISATIE_GEGEVENS}" level="Auto"/>
+                                </form:title>
+                                <form:formContainers>
+                                    <form:FormContainer visible="true">
+                                        <form:formElements>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>FUNCTIE}" design="Standard" width="100%" required="false" textAlign="Initial" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/PositionText}" width="auto"  wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>  
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>ROL}" design="Standard" width="100%" required="false" textAlign="Initial" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/roles}" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>AFDELING}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/Subdirectoraat}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>DIRECTIE}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/Directoraat}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>LOCATIE}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/Locatie}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>GEBOUW}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/GebouwNaam}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>KAMERNUMMER}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Text text="{/RoomNo}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>SECRETARIAATVAN}" wrapping="true" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="LTR"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <!--<m:Link href="{ID}" text="{/secretariaatVan}" textAlign="Begin" width="auto" target="_blank" wrapping="true" enabled="true" visible="true" emphasized="false" subtle="false"/>-->
+                                                    <m:Text text="{/secretariaatVan}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>                                                    
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>MANAGER}" design="Standard" width="100%" required="false" textAlign="Initial"/>
+                                                </form:label>
+                                                <form:fields>
+													<controls:LinkList id="manager" items="{/linkItemsManager}">
+														<controls:items>
+															<controls:LinkListItem text="{text}" profileId="{profileId}" select="onLinkClick" width="10%"/>
+														</controls:items>
+													</controls:LinkList>                                                    
+                                                </form:fields>                                                
+                                            </form:FormElement>  
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>SECRETARIAAT}" design="Standard" width="100%" required="false" textAlign="Initial"/>
+                                                </form:label>
+                                                <form:fields>
+													<controls:LinkList items="{/linkItemsSecretariaat}">
+														<controls:items>
+															<controls:LinkListItem text="{text}" profileId="{profileId}" select="onLinkClick"/>
+														</controls:items>
+													</controls:LinkList>                                                    
+                                                </form:fields>                                                
+                                            </form:FormElement>
+                                        </form:formElements>
+                                        <form:title/>
+                                    </form:FormContainer>
+                                </form:formContainers>
+                                <form:layout>
+                                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                                </form:layout>
+                            </form:Form>
+                        </blocks>
+                        <moreBlocks/>
+                        <actions/>
+                    </ObjectPageSubSection>
+                </subSections>  	            	
+            </ObjectPageSection>            	           			
+        </sections>		
+	</ObjectPageLayout>
+	</m:Page>
+</core:View>

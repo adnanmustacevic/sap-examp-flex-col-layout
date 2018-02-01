@@ -1,143 +1,56 @@
-<View xmlns="sap.m" displayBlock="true" controllerName="nl.kadaster.test.flexcollayout.mycolleagues.controller.Master" height="100%">
-	<Page id="masterPage" title="Master page">
-		<Table>
-			<columns>
-				<Column><Label text="Master List" /></Column>
-			</columns>
-			<items>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-				<ColumnListItem type="Navigation" vAlign="Middle" press="handleMasterPress">
-					<cells>
-						<Text text="Open mid column"/>
-					</cells>
-				</ColumnListItem>
-			</items>
-		</Table>
-	</Page>
+<View xmlns:mvc="sap.ui.core.mvc" 
+	  xmlns:core="sap.ui.core" 
+	  xmlns:layout="sap.ui.layout" 
+	  xmlns="sap.m" 
+	  xmlns:f="sap.f" 
+	  xmlns:fb="sap.ui.comp.filterbar"
+	  xmlns:vm="sap.ui.comp.variants"
+	  displayBlock="true" 
+	  controllerName="nl.kadaster.test.flexcollayout.mycolleagues.controller.Master" 
+	  height="100%">
+		<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}">
+			
+			<!--DynamicPage Title-->
+			<f:title>
+				<f:DynamicPageTitle>
+				</f:DynamicPageTitle>
+			</f:title>
+			
+			 <!--DynamicPage Header-->
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>
+						<SearchField id="employeesSearch" search="handleSearch" placeholder="{i18n>COLLEGA_ZOEKEN}" width="100%"/>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+
+			<!--DynamicPage Content -->
+			<f:content>
+				<Table id="idEmployeesTable" inset="false" items="{/results}" >
+
+					<columns>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text=""/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Naam"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Functie"/>
+						</Column>
+					</columns>
+
+					<items>
+						<ColumnListItem vAlign="Middle" type="Navigation" press="handleRowSellect">
+							<cells>
+								<Image   src="{photoURL}" 	width="5em"/>
+								<ObjectIdentifier title="{Name}" text="{EmployeeNumber}"/>
+								<Text text="{PositionText}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+		</f:DynamicPage>
 </View>
-
-

@@ -34,7 +34,9 @@ sap.ui.define([
 						"view/Master.view.xml",
 						"controller/Detail.controller.js",
 						"view/Detail.view.xml",
-						"view/DetailDetail.view.xml"
+						"view/DetailDetail.view.xml",
+						"util/ODataServiceUtil.js",
+						"util/DetailDetail.Util.js"
 					]
 				}
 			}

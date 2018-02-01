@@ -48,6 +48,11 @@
 		]
 	},
 	"sap.ui5": {
+		"rootView": {
+			"viewName": "nl.kadaster.test.flexcollayout.mycolleagues.view.FlexibleColumnLayout",
+			"type": "XML",
+			"id": "fcl"
+		},
 		"resources": {
 			"js": [],
 			"css": []

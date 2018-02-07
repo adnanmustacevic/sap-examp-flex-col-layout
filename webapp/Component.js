@@ -16,7 +16,7 @@ sap.ui.define([
 
 	var Component = UIComponent.extend("nl.kadaster.test.flexcollayout.mycolleagues.Component", {
 		metadata: {
-			rootView: "nl.kadaster.test.flexcollayout.mycolleagues.view.FlexibleColumnLayout",
+			rootView: "nl.kadaster.test.flexcollayout.mycolleagues.view.App",
 			dependencies: {
 				libs: [
 					"sap.m",
@@ -28,6 +28,8 @@ sap.ui.define([
 					stretch: true,
 					files: [
 						"Component.js",
+						"controller/App.controller.js",		
+						"view/App.view.xml",							
 						"controller/FlexibleColumnLayout.controller.js",
 						"view/FlexibleColumnLayout.view.xml",
 						"controller/Master.controller.js",

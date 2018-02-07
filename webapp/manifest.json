@@ -49,7 +49,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "nl.kadaster.test.flexcollayout.mycolleagues.view.FlexibleColumnLayout",
+			"viewName": "nl.kadaster.test.flexcollayout.mycolleagues.view.App",
 			"type": "XML",
 			"id": "fcl"
 		},
@@ -128,5 +128,36 @@
 	},
 	"sap.platform.hcp": {
 		"uri": ""
-	}
+	},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "nl.kadaster.test.flexcollayout.mycolleagues.view",
+				"controlId": "app",
+				"bypassed": {
+					"target": [
+						"FlexibleColumnLayout",
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "FlexibleColumnLayout",
+					"target": [
+						"flexibleColumnLayout"
+					]
+				}
+			],
+			"targets": {
+				"main": {
+					"viewName": "flexibleColumnLayout",
+					"viewLevel": 1,
+					"viewId": "flexibleColumnLayout"
+				}
+			}
+		}	
 }

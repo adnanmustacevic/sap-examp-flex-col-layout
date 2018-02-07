@@ -20,7 +20,7 @@ sap.ui.define([
 		},
 
 		// Lazy loader for the mid page - only on demand (when the user clicks)
-		setDetailPage: function () {
+		setDetailPage: function (oEvent) {
 
 			if (!this.detailView) {
 				this.detailView = sap.ui.view({

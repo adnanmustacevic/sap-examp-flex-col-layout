@@ -27,12 +27,12 @@
     {
       "templateId": "uiadaptation.changespreviewjs",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Thu, 01 Feb 2018 15:29:16 GMT"
+      "dateTimeStamp": "Wed, 07 Feb 2018 10:16:41 GMT"
     }
   ],
   "mockpreview": {
-    "mockUri": "/sap/opu/odata/sap/ZHCM_PEOPLE_PROFILE_SRV",
-    "metadataFilePath": "",
+    "mockUri": "/sap/opu/odata/sap/ZHCM_PEOPLE_PROFILE_SRV/",
+    "metadataFilePath": "localService/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""

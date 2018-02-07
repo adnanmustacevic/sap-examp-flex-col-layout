@@ -9,8 +9,26 @@ sap.ui.define([
 
 	return Controller.extend("nl.kadaster.test.flexcollayout.mycolleagues.controller.Master", {
 		onInit: function () {
+			this.getValueHelp();
 			this.bus = sap.ui.getCore().getEventBus();
 		},
+
+		getValueHelp: function() {
+			var that = this;
+			this.model = {};
+		    jQuery.when(ODataServiceUtil.getValueHelpList("Rol")).then(function(rolValueHelp) {
+				that.model.rolValueHelp = rolValueHelp;
+		        return ODataServiceUtil.getValueHelpList("Gebouw");
+		    }).then(function(gebouwValueHelp) {
+				that.model.gebouwValueHelp = gebouwValueHelp;
+		        return ODataServiceUtil.getValueHelpList("Organisatie");				
+		    }).then( function(organisatieValueHelp) {
+				that.model.organisatieValueHelp = organisatieValueHelp;	
+		    }).fail(function(error) {
+				//ShowError
+		    });			
+		},
+		
 		handleRowSellect: function (evt) {
 			var that = this;
 			var contextSource = evt.getSource();
@@ -38,12 +56,10 @@ sap.ui.define([
 				uiDataModel.PhotoUrl = imageURL;    
 				uiDataModel.GebouwNaam = that.getNameById(oData.Gebouw, "gebouwValueHelp");
 				oODataJSONModel.setData(uiDataModel);
-//				detailView.setModel(oODataJSONModel);
-//				detailView.getModel().refresh();
-				that.nav.to("Detail", context);
-			}); 	
-			
-			this.bus.publish("flexible", "setDetailPage");
+				that.bus.publish("flexible", "setDetailPage");
+				var detailView = sap.ui.getCore().byId("midView");
+				detailView.setModel(oODataJSONModel);
+			});
 		},
 	
 		handleSearch: function() {
@@ -61,6 +77,69 @@ sap.ui.define([
 				});
 				that.getView().setModel(new sap.ui.model.json.JSONModel(oData));
 			});  
+		},
+
+		getDataFromServiceResultPersons: function(oData, name) {
+			var values = this.getDataFromPersonalInfoUpdSet(oData, name);
+			var personInfo = {};
+			var persons = [];
+			values.forEach(function(value) {
+				if (value.Fieldvalue) {
+					var personalId = value.Fieldvalue.split("|");
+					personInfo.profileId = personalId[0].trim();
+					personInfo.text = personalId[1].trim();					
+				} else {
+					personInfo.text = "";
+					personInfo.profileId = "";
+				}
+				persons.push(personInfo);
+			});
+			if (persons.length === 0) {
+				persons.push({
+					text:"", 
+					profileId:""
+				});
+			}
+			return persons;
+		},
+
+		getDataFromServiceResult: function(oData, name, valueHelp) {
+			var that = this;
+			var values = this.getDataFromPersonalInfoUpdSet(oData, name);
+			var fieldValue = [];
+			values.forEach(function(value) {
+				fieldValue.push(that.getNameById(value.Fieldvalue, valueHelp));
+			});
+			return fieldValue.join(", ");
+		},
+		
+		getDataFromPersonalInfoUpdSet: function(oData, name) {
+			return oData.PersonalInfoSet.results.filter(function(record) {
+				return record.Fieldlabel === name;
+			});
+		},
+
+		getNameById: function(id, valueHelpAttribute) {
+			if (valueHelpAttribute) {
+				return this.getNameFromValuHelp(id, valueHelpAttribute);
+			} else {
+				if (id) {
+					var name = id.split("|");
+					return name[1].trim();					
+				}
+			}
+		},
+
+		getNameFromValuHelp: function (id, valueHelpAttribute) {
+			var valueHelp = this.model[valueHelpAttribute];
+			var selectedValueHelp = valueHelp.results.filter(function(valueHelpElement){
+				return id === valueHelpElement.FieldId;
+			});
+			if (selectedValueHelp.length > 0) {
+				return selectedValueHelp[0].FieldValue;
+			} else {
+				return "";
+			}			
 		}
 	});
 }, true);

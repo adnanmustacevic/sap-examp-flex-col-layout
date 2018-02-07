@@ -1,1 +1,1 @@
-# sap-examp-flex-col-layout
+# sap-examp-flex-col-layout, used for template.

@@ -26,9 +26,6 @@
 	
 
 	<m:Page class="sapUiFioriObjectPage"	showNavButton="{device>/isPhone}" navButtonPress="handleNavButtonPress">
-		
-		
-		
 	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" showTitleInHeaderContent="true" showHeaderContent="true">
 		<headerTitle>
 			<ObjectPageHeader id="ObjectPageHeader" objectImageURI="{/PhotoUrl}" objectImageShape="Circle" objectTitle="{/Roepnaam} {/Name}" isObjectTitleAlwaysVisible="false"/>
@@ -59,8 +56,8 @@
 
 	            <m:VBox alignItems="Stretch" direction="Column" fitContainer="false" renderType="Div" visible="{device>/isNotPhone}" displayInline="false" width="200px" justifyContent="Start">
 	                <m:items>
-<!--	                    <m:Label/>
-	                    <m:Text text="{/OverMij}" maxLines="3" wrapping="true" width="340px" textAlign="Initial" textDirection="LTR"/>-->
+	                    <m:Label/>
+	                    <m:Text text="{/OverMij}" maxLines="3" wrapping="true" width="340px" textAlign="Initial" textDirection="LTR"/>
 	                </m:items>
 	            </m:VBox>
 	            <m:HBox alignItems="Stretch" direction="Column" fitContainer="true" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">

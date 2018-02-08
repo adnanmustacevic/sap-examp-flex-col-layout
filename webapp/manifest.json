@@ -12,15 +12,6 @@
 		"tags": {
 			"keywords": []
 		},
-		"dataSources": {
-			"mainService": {
-				"uri": "/sap/opu/odata/sap/ZHCM_PEOPLE_PROFILE_SRV/",
-				"type": "OData",
-				"settings": {
-					"localUri": "localService/metadata.xml"
-				}
-			}
-		},
 		"offline": false,
 		"sourceTemplate": {
 			"id": "ui5template.smartTemplate",
@@ -75,26 +66,8 @@
 		"models": {
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/i18n.properties"
-			},
-			"@i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/i18n.properties"
-			},
-			"i18n|sap.suite.ui.generic.template.ListReport|EmployeeDataSet": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/ListReport/EmployeeDataSet/i18n.properties"
-			},
-			"i18n|sap.suite.ui.generic.template.ObjectPage|EmployeeDataSet": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/ObjectPage/EmployeeDataSet/i18n.properties"
-			},
-			"": {
-				"dataSource": "mainService",
 				"settings": {
-					"defaultBindingMode": "TwoWay",
-					"defaultCountMode": "Inline",
-					"refreshAfterChange": false
+					"bundleName": "nl.kadaster.test.flexcollayout.mycolleagues.i18n.i18n"
 				}
 			}
 		},

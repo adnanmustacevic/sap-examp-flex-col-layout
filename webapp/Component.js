@@ -16,6 +16,10 @@ sap.ui.define([
 
 	var Component = UIComponent.extend("nl.kadaster.test.flexcollayout.mycolleagues.Component", {
 		metadata: {
+			manifest: "json",
+			includes: [
+				"css/style.css"
+			],			
 			rootView: "nl.kadaster.test.flexcollayout.mycolleagues.view.App",
 			dependencies: {
 				libs: [
@@ -23,24 +27,8 @@ sap.ui.define([
 					"sap.f"
 				]
 			},
-			config: {
-				sample: {
-					stretch: true,
-					files: [
-						"Component.js",
-						"controller/App.controller.js",		
-						"view/App.view.xml",							
-						"controller/FlexibleColumnLayout.controller.js",
-						"view/FlexibleColumnLayout.view.xml",
-						"controller/Master.controller.js",
-						"view/Master.view.xml",
-						"controller/Detail.controller.js",
-						"view/Detail.view.xml",
-						"view/DetailDetail.view.xml",
-						"util/ODataServiceUtil.js",
-						"util/DetailDetail.Util.js"
-					]
-				}
+			config : {
+			  "resourceBundle" : "i18n/i18n.properties"
 			}
 		}
 	});
